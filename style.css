@@ -1,0 +1,174 @@
+/* ============================================================
+   Сайт про космос — стили (тёмная тема)
+   Файл подключён к index.html строкой <link rel="stylesheet">
+   ============================================================ */
+
+/* ---------- 1. ПЕРЕМЕННЫЕ: палитра «ночного неба» ---------- */
+:root {
+  --bg: #0a0e1c;            /* почти чёрный фон с синевой */
+  --card: #121829;          /* фон карточек, чуть светлее */
+  --text: #e9ecf5;          /* светлый текст */
+  --muted: #98a1b8;         /* серо-голубой второстепенный текст */
+  --accent: #7aa2ff;        /* главный цвет — небесно-синий */
+  --line: #232c45;          /* границы карточек */
+}
+
+/* ---------- 2. БАЗОВЫЕ ПРАВИЛА ---------- */
+* {
+  margin: 0;                /* сбрасываем отступы браузера */
+  padding: 0;
+  box-sizing: border-box;   /* padding не увеличивает ширину блоков */
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  /* ^ браузер выбирает первый шрифт, который есть на устройстве */
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;           /* auto по бокам = центр */
+  padding: 0 20px;
+}
+
+/* ---------- 3. ГЛАВНЫЙ ЭКРАН ---------- */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 0 70px;
+  overflow: hidden;
+}
+
+/* Мягкое «свечение» за заголовком: псевдоэлемент — блок,
+   которого нет в HTML, его рисует CSS */
+.hero::before {
+  content: "";              /* без этого свойства он не появится */
+  position: absolute;
+  top: -180px;
+  left: 50%;                /* ставим в центр по горизонтали */
+  transform: translateX(-50%);
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 162, 255, 0.22), transparent 70%);
+}
+
+.badge {
+  position: relative;       /* чтобы бейдж лежал поверх свечения */
+  display: inline-block;
+  border: 1px solid var(--line);
+  color: var(--accent);
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.hero h1 {
+  position: relative;
+  font-size: clamp(44px, 9vw, 76px); /* растёт и уменьшается плавно */
+  letter-spacing: 2px;
+  margin: 18px 0 14px;
+}
+
+.hero__text {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+/* ---------- 4. СЕКЦИИ ---------- */
+.section { padding: 56px 0; }
+
+.section--last { padding-top: 0; }
+
+.section h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* ---------- 5. КАРТОЧКИ ПЛАНЕТ ---------- */
+.cards {
+  display: grid;
+  /* auto-fit: колонок появляется столько, сколько влезает;
+     на телефоне остаётся одна — сетка сама перестраивается */
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);        /* карточка всплывает */
+  border-color: var(--accent);        /* и подсвечивается граница */
+}
+
+/* Кружок-планета: общий размер и форма для всех */
+.planet {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  /* тень ВНУТРИ кружка: нижний край темнее — так круг становится «шаром» */
+  box-shadow: inset -10px -12px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Градиент задаёт цвет каждой планеты: светлая точка = «солнце» сбоку */
+.planet--mercury { background: radial-gradient(circle at 32% 30%, #d8d2c8, #9c948a 65%); }
+.planet--venus   { background: radial-gradient(circle at 32% 30%, #f2d49b, #d99e56 65%); }
+.planet--earth   { background: radial-gradient(circle at 32% 30%, #9ec9ff, #5a8fd6 65%); }
+.planet--mars    { background: radial-gradient(circle at 32% 30%, #f0a07c, #c95f43 65%); }
+.planet--jupiter { background: radial-gradient(circle at 32% 30%, #ecc39a, #c98d5e 65%); }
+.planet--saturn  { background: radial-gradient(circle at 32% 30%, #f2dfae, #d4b06a 65%); }
+.planet--uranus  { background: radial-gradient(circle at 32% 30%, #cdf0f7, #8fd0dd 65%); }
+.planet--neptune { background: radial-gradient(circle at 32% 30%, #a9b8f7, #5f74d8 65%); }
+
+.card h3 { font-size: 18px; margin-bottom: 6px; }
+
+.card p { font-size: 14.5px; color: var(--muted); }
+
+/* ---------- 6. СПИСОК ФАКТОВ ---------- */
+.facts {
+  list-style: none;         /* убираем точки у списка */
+  display: grid;
+  gap: 12px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.facts li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent); /* синяя полоска слева */
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+/* ---------- 7. ПОДВАЛ ---------- */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 26px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- 8. АДАПТИВ ПОД ТЕЛЕФОНЫ ----------
+   Колонки карточек перестраиваются сами (auto-fit),
+   поэтому остаётся только уменьшить отступы */
+@media (max-width: 600px) {
+  .hero { padding: 64px 0 50px; }
+  .section { padding: 44px 0; }
+}

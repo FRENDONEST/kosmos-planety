@@ -1,0 +1,87 @@
+<!DOCTYPE html> <!-- современный HTML5 -->
+<html lang="ru" data-zcode-design> <!-- язык страницы — русский; data-атрибут — служебная метка редактора, можно удалить -->
+
+<head>
+  <meta charset="UTF-8">                  <!-- кодировка для русского текста -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- правильный масштаб на телефоне -->
+  <title>Космос — восемь планет</title> <!-- надпись на вкладке браузера -->
+  <link rel="stylesheet" href="style.css"> <!-- подключаем файл стилей -->
+</head>
+
+<body>
+  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">мини-справочник</span>
+      <h1>Космос</h1>
+      <p class="hero__text">Восемь планет Солнечной системы — по одной карточке на каждую. Без формул и сложных слов, только самое интересное.</p>
+    </div>
+  </section>
+
+  <!-- ПЛАНЕТЫ: каждая — это карточка -->
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        <article class="card">
+          <span class="planet planet--mercury"></span> <!-- кружок-планета, цвет задаёт CSS -->
+          <h3>Меркурий</h3>
+          <p>Самая маленькая и ближе всех к Солнцу. Год здесь длится всего 88 дней.</p>
+        </article>
+        <article class="card">
+          <span class="planet planet--venus"></span>
+          <h3>Венера</h3>
+          <p>Самая горячая: около +465&nbsp;°C. Сутки тут длиннее года.</p>
+        </article>
+        <article class="card">
+          <span class="planet planet--earth"></span>
+          <h3>Земля</h3>
+          <p>Наш дом и пока единственная известная планета, где есть жизнь.</p>
+        </article>
+        <article class="card">
+          <span class="planet planet--mars"></span>
+          <h3>Марс</h3>
+          <p>Красная планета. Гора Олимп — в 2,5 раза выше Эвереста.</p>
+        </article>
+        <article class="card">
+          <span class="planet planet--jupiter"></span>
+          <h3>Юпитер</h3>
+          <p>Самая большая. Большое красное пятно — шторм крупнее всей Земли.</p>
+        </article>
+        <article class="card">
+          <span class="planet planet--saturn"></span>
+          <h3>Сатурн</h3>
+          <p>Кольца изо льда и камней: при огромной ширине их толщина — десятки метров.</p>
+        </article>
+        <article class="card">
+          <span class="planet planet--uranus"></span>
+          <h3>Уран</h3>
+          <p>Вращается «на боку», как перекатившийся мяч.</p>
+        </article>
+        <article class="card">
+          <span class="planet planet--neptune"></span>
+          <h3>Нептун</h3>
+          <p>Самые быстрые ветра в Солнечной системе — до 2000&nbsp;км/ч.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФАКТЫ -->
+  <section class="section section--last">
+    <div class="container">
+      <h2>Три факта напоследок</h2>
+      <ul class="facts">
+        <li>Свет от Солнца добирается до Земли за 8 минут.</li>
+        <li>Если выстроить все планеты в ряд, они поместятся между Землёй и Луной.</li>
+        <li>Планет в Солнечной системе восемь: Плутон в 2006 году перевели в карликовые.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer">
+    <p>Учебный сайт про космос · сделан на HTML и CSS · 2026</p>
+  </footer>
+</body>
+
+</html>
